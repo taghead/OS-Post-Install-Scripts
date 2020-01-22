@@ -7,6 +7,7 @@
 #           - Remove snapd
 #           - Disable systemd-networkd-wait-online.service 
 #           - Unistall cloud-init
+#           - Install lxsesson as my default session manager.
 #
 #   Requirements:
 #       - Internet (Use nmtui to configure network?)
@@ -18,8 +19,9 @@ echo Installing packages.....
 #       - obconf            |   Configure openbox. (Use to change appearance)
 #       - python            |   Required for openbox rightclick menu
 #       - lxappearance      |   Configure qt5 windows appearance
+#       - lxsession         |   Used for default session manager
 
-    apt install openbox obconf python lxappearance
+    apt install -y openbox obconf python lxappearance lxsession
 
 # Themes 
 echo Preparing themes.....
@@ -28,14 +30,14 @@ echo Preparing themes.....
 # lxappearance:
 #       - Arc-Dark
     git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes
-    apt install arc-theme
+    apt install -y arc-theme
 
 # Remove...
 echo Removing packages.....
 # Applications
 #       - ubuntu-session    |   Replaced by openbox
 #       - snapd             |   Preference, apt is paramount.
-    apt autoremove --purge ubuntu-session snapd
+    apt autoremove -y --purge ubuntu-session snapd
 
 # Additional....
 # Fixes:
