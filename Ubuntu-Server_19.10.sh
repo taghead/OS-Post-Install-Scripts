@@ -1,3 +1,11 @@
+#   Description: This is a bare metal install of openbox. There will be issues to be expected that will need to tackled at a per user basis.
+#   
+#   Issues expected:
+#       - Fn key shortcut issues (Volume up, brighness...)
+#
+#   Disadvantages:
+#       - Openbox does not fully support window snapping
+#
 #   Notes:
 #       - Tested on ubuntu server 19.10
 #       - +REP https://github.com/addy-dclxvi/openbox-theme-collections for the amazing obconf themes.
