@@ -1,5 +1,12 @@
 #   Notes:
 #       - Tested on ubuntu server 19.10
+#       - +REP https://github.com/addy-dclxvi/openbox-theme-collections for the amazing obconf themes.
+#       - This setup installs openbox and removes the ubuntu session.
+#       - To apply the downloaded themes use obconf and lxappearance.
+#       - By preference I do the following
+#           - Remove snapd
+#           - Disable systemd-networkd-wait-online.service 
+#           - Unistall cloud-init
 #
 #   Requirements:
 #       - Internet (Use nmtui to configure network?)
