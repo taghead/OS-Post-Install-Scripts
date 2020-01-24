@@ -61,19 +61,10 @@ echo Removing packages.....
 
 # Additional....
 echo Additional changes.....
-# Firefox
-#       - Search engine | Changed to google                 Used by preference
-for user in /home/*
-do
-    if [ -d $user ]
-    then
-        for profile in $user/.mozilla/firefox/*.default*/prefs.js
-        do
-            echo "For $user changing firefox search to google..."
-            sed -e 's/Google/DuckDuckGo/' -i $user/.mozilla/firefox/*.default*/prefs.js
-        done
-    fi
-done
+# Placeholder
+#       - Lorem Ipsum | Lorem                                Used by preference
+
+
 #
 # Maintainence
     apt-get update -y
