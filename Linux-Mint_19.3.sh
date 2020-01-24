@@ -48,6 +48,21 @@ echo Removing packages.....
     apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird
 
 # Additional....
+echo Additional changes.....
+# Firefox
+#       - Change search engine to google | Used by preference
+for user in /home/*
+do
+    if [ -d $user ]
+    then
+        for profile in $user/.mozilla/firefox/*.default*/prefs.js
+        do
+            echo "For $user changing firefox search to google..."
+            sed -e 's/Google/DuckDuckGo/' -i $user/.mozilla/firefox/*.default*/prefs.js
+        done
+    fi
+done
+#
 # Maintainence
     apt-get update -y
     apt-get upgrade -y
