@@ -1,19 +1,19 @@
-#   Description: Mainly changing preferred packages and themes on Linux Mint 19.3
+#   Description: Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3
 #
 #   Notes:
-#       - Tested on Linux Mint 19.3
+#       - Tested on | Lenovo E595 Thinkpad | Ryzem 3700u | Integrated Vega 10 | Linux Mint 19.3 
 #
 #   Requirements:
-#       - Internet
+#       - Internet      | This script is highly dependant on internet access, mostly to obtain packages...
 # Install...
 echo Installing packages.....
 # Applications:
-#       - vscodium              |   Preferred text editor
-#       - megasync              |   Preferred cloud storage
-#       - mpv                   |   Minimal CLI Video Player
-#       - vlc                   |   Multmedia Player
-#       - git                   |   Used for git clone and projects
-#       - conky                 |   Resource Monitor Configuration
+#       - vscodium      |   text editor                     Used by preference
+#       - megasync      |   cloud storage                   Used by preference
+#       - mpv           |   Minimal CLI Video Player        Used by preference
+#       - vlc           |   Multmedia Player                Used by preference
+#       - git           |   GIT CLI Client                  Used by preference and required for script
+#       - conky         |   Resource Monitor                Used by preference
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -33,7 +33,7 @@ echo Installing packages.....
 # Themes 
 echo Preparing themes.....
 # Window Manager:
-#       - Arc-Dark
+#       - Arc-Dark      |   Dark theme                      to protect my eyes
     apt-get install -y arc-theme
     xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Dark"
     xfconf-query -c xfwm4 -p /general/theme -s "Arc-Darker"
@@ -41,16 +41,17 @@ echo Preparing themes.....
 # Remove...
 echo Removing packages.....
 # Applications
-#       - hexchat       |   Not used by preference
-#       - transmission  |   Not used by preference
-#       - celluloid     |   Not used by preference
-#       - thunderbird   |   Not used by preference
-    apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird
+#       - hexchat       |   IRC Chat Client                 Not used by preference
+#       - transmission  |   BitTorrent Client               Not used by preference
+#       - celluloid     |   Front-end for MPV               Not used by preference
+#       - thunderbird   |   Mail client                     Not used by preference
+#       - xed           |   Text editor                     Not used by preference
+    apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird xed
 
 # Additional....
 echo Additional changes.....
 # Firefox
-#       - Change search engine to google | Used by preference
+#       - Search engine | Changed to google                 Used by preference
 for user in /home/*
 do
     if [ -d $user ]
