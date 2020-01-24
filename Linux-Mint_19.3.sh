@@ -1,3 +1,4 @@
+#!/bin/bash
 #   Description: Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3
 #
 #   Notes:
