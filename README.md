@@ -6,7 +6,7 @@ A collection of personal post linux installation scripts for various Linux distr
     - Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3
     - Installs `vscodium`, `megasync`, `mpv`, `vlc`, `git` and `conky`.
     - Installs `arc-theme` and applies *arc-darker* to the __window manager__ and *arc-dark* to __appearance__.
-    - Removes `hexchat`, `transmission`. `celluloid`. `thunderbird` and `xed`.
+    - Removes `hexchat`, `transmission`. `celluloid`. `thunderbird`, `xed`, `mintwelcome` and `pix`.
     
 ## Ubuntu Server
 - Ubuntu Server 19.10
