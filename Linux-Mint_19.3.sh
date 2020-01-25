@@ -57,7 +57,9 @@ echo Removing packages.....
 #       - celluloid     |   Front-end for MPV               Not used by preference
 #       - thunderbird   |   Mail client                     Not used by preference
 #       - xed           |   Text editor                     Not used by preference
-    apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird xed
+#       - mintwelcome   |   Welcome Screen                  Redundant IMO
+#       - pix           |   Image Viewer                    Redundant xviewer installed by defaul
+    apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird xed mintwelcome
 
 # Additional....
 echo Additional changes.....
