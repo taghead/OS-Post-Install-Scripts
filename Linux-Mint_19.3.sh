@@ -6,6 +6,13 @@
 #
 #   Requirements:
 #       - Internet      | This script is highly dependant on internet access, mostly to obtain packages...
+
+# Check root user
+    if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root" 
+        exit 1
+    fi
+
 # Install...
 echo Installing packages.....
 # Applications:
@@ -39,15 +46,20 @@ echo Installing packages.....
 
     apt-get update -y
     apt-get install -f -y
-    apt install -y mpv vlc spotify-client git conky-all
+    apt install -y mpv vlc spotify-client git
 
 # Themes 
 echo Preparing themes.....
 # Window Manager:
-#       - Arc-Dark      |   Dark theme                      to protect my eyes
+#       - Arc-Dark          |   Dark theme                      to protect my eyes
     apt-get install -y arc-theme
     xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Dark"
     xfconf-query -c xfwm4 -p /general/theme -s "Arc-Darker"
+
+# Conky:
+#       - Resource Monitor  |
+    apt-get install conky-all
+    curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Files/Universal-Scripts/Conky.sh | bash
 
 # Remove...
 echo Removing packages.....
