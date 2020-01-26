@@ -1,3 +1,4 @@
+#!/bin/bash
 #Download Conky Configuration
 wget https://gitlab.com/Taghead/linux-install-scripts/raw/master/Files/Configs/conky.config -O ~/.conkyrc
 
@@ -6,6 +7,7 @@ ethernet=`ip -o link show | awk -F': ' '{print $2}' | grep enp*`
 wireless=`ip -o link show | awk -F': ' '{print $2}' | grep wlp*`
 tunnel=`ip -o link show | awk -F': ' '{print $2}' | grep tun*`
 
+#Checks if found assumable interface
 if [ $ethernet ] 
 then 
     echo "Conky assuming $ethernet as ethernet."
