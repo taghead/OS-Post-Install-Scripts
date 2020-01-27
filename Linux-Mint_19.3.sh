@@ -1,8 +1,8 @@
 #!/bin/bash
-#   Description: Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3
+#   Description: Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3 XFCE
 #
 #   Notes:
-#       - Tested on | Lenovo E595 Thinkpad | Ryzem 3700u | Integrated Vega 10 | Linux Mint 19.3 
+#       - Tested on Linux Mint 19.3 XFCE | Lenovo E595 Thinkpad | Ryzem 3700u | Integrated Vega 10 | Linux Mint 19.3 
 #
 #   Requirements:
 #       - Internet      | This script is highly dependant on internet access, mostly to obtain packages...
@@ -75,8 +75,8 @@ echo Removing packages.....
 
 # Additional....
 echo Additional changes.....
-# Placeholder
-#       - Lorem Ipsum | Lorem                                Used by preference
+# Suspend on lid close while on AC
+    xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
 
 
 #
