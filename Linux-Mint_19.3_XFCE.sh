@@ -31,6 +31,7 @@ echo Installing packages.....
 #       - vlc           |   Multmedia Player                Used by preference
 #       - git           |   GIT CLI Client                  Used by preference and required for script
 #       - conky         |   Resource Monitor                Used by preference
+#       - discord       |   Social Platform                 Used by preference
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -39,7 +40,7 @@ echo Installing packages.....
     then
         echo Mega Sync is already installed...
     else
-        wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -P /tmp/
+        wget -N https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -P /tmp/
         sudo dpkg -i /tmp/megasync-xUbuntu_18.04_amd64.deb
         rm /tmp/megasync-xUbuntu_18.04_amd64.deb
     fi
@@ -48,9 +49,16 @@ echo Installing packages.....
     then
         echo VSCodium is already installed...
     else
-        wget https://github.com/VSCodium/vscodium/releases/download/1.41.1/codium_1.41.1-1576787344_amd64.deb -P /tmp/
+        wget -N https://github.com/VSCodium/vscodium/releases/download/1.41.1/codium_1.41.1-1576787344_amd64.deb -P /tmp/
         sudo dpkg -i /tmp/codium_1.41.1-1576787344_amd64.deb
-        rm /tmp codium_1.41.1-1576787344_amd64.deb
+        rm /tmp/codium_1.41.1-1576787344_amd64.deb
+    fi
+    
+    if [[ $(dpkg --list | grep -wo discord) = "discord" ]]
+    then
+        wget -N https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb -P /tmp
+        sudo dpkg -i /tmp/discord-0.0.9.deb
+        rm /tmp/discord-0.0.9.deb
     fi
 
     sudo apt-get update -y
