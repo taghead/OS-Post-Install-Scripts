@@ -30,8 +30,48 @@ echo "mongodb-org-tools hold" | dpkg --set-selections
 
 
 #Preparing the mongodb server.
-read -p "\nEnter Admin User: "  userAdmin
-read -s -p "\nEnter Admin Password: "  passAdmin
-read -p "\nEnter Database User: "  userDatabase
-read -s -p "\nEnter Password: "  passDatabase
-read -p "\nEnter Database Name: "  userDatabase
+echo -e "\n"
+read -p "Enter Admin User: "  userAdmin
+read -s -p "Enter Admin Password: "  passAdmin
+echo -e "\n"
+read -p "Enter Database User: "  userDatabase
+read -s -p "Enter Password: "  passDatabase
+echo -e "\n"
+read -p "Enter Database Name: "  database
+
+#Bind all current IP addresses
+mongod --bind_ip_all
+
+#Check service status
+service mongod start
+service mongod status
+q
+
+#Enable systemctl for mongod
+systemctl enable mongod
+
+#Create Databases and users...
+mongo
+use admin;
+
+db.createUser({
+user: "$userAdmin",
+pwd: "$passAdmin",
+roles: [
+{ role: "userAdminAnyDatabase", db: "admin" },
+{ role: "readWriteAnyDatabase", db: "admin" },
+{ role: "dbAdminAnyDatabase",   db: "admin" }
+]
+});
+
+db.auth("$userAdmin","$passAdmin")
+
+use $database
+db.createUser({
+user: "$userDatabase",
+pwd: "$passDatabase",
+roles: [{ role: 'readWrite', db:"$database"}]
+})
+
+db.auth("$userDatabase","$passDatabase")
+
