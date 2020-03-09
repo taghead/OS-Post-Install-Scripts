@@ -57,6 +57,8 @@ echo Installing packages.....
     
     if [[ $(dpkg --list | grep -wo discord) = "discord" ]]
     then
+        echo Discord is already installed...
+    else
         wget -N https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb -P /tmp
         sudo dpkg -i /tmp/discord-0.0.9.deb
         rm /tmp/discord-0.0.9.deb
