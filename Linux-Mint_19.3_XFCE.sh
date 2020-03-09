@@ -32,6 +32,7 @@ echo Installing packages.....
 #       - git           |   GIT CLI Client                  Used by preference and required for script
 #       - conky         |   Resource Monitor                Used by preference
 #       - discord       |   Social Platform                 Used by preference
+#       - eclipse-ide   |   IDE                             Needed sometimes
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -59,6 +60,17 @@ echo Installing packages.....
         wget -N https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb -P /tmp
         sudo dpkg -i /tmp/discord-0.0.9.deb
         rm /tmp/discord-0.0.9.deb
+    fi
+
+    if [ -d /usr/eclipse ]
+    then
+        echo Eclise-IDE is already installed...
+    else 
+        wget -N http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz -P /tmp/
+        sudo tar -zxvf /tmp/eclipse-java-2019-*-R-linux-gtk-x86_64.tar.gz -C /usr/
+        sudo ln -s /usr/eclipse/eclipse /usr/bin/eclipse
+        sudo printf '[Desktop Entry]\nEncoding=UTF-8\nName=Eclipse IDE\nComment=Eclipse IDE\nExec=/usr/bin/eclipse\nIcon=/usr/eclipse/icon.xpm\nTerminal=false\nType=Application\nCategories=Development;Programming\nStartupNotify=false\n'  >> /tmp/eclipse.desktop
+        sudo mv /tmp/eclipse.desktop /usr/share/applications/eclipse.desktop
     fi
 
     sudo apt-get update -y
