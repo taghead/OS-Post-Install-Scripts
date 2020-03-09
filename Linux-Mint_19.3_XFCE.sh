@@ -25,6 +25,7 @@
 # Install...
 echo Installing packages.....
 # Applications:
+#       - build tools   |   Compiling Source                only needed to compile source code
 #       - vscodium      |   text editor                     Used by preference
 #       - megasync      |   cloud storage                   Used by preference
 #       - mpv           |   Minimal CLI Video Player        Used by preference
@@ -33,6 +34,9 @@ echo Installing packages.....
 #       - conky         |   Resource Monitor                Used by preference
 #       - discord       |   Social Platform                 Used by preference
 #       - eclipse-ide   |   IDE                             Needed sometimes
+#       - pyenv         |   Python version manager          Used by preference
+
+    sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -74,6 +78,15 @@ echo Installing packages.....
         sudo printf '[Desktop Entry]\nEncoding=UTF-8\nName=Eclipse IDE\nComment=Eclipse IDE\nExec=/usr/bin/eclipse\nIcon=/usr/eclipse/icon.xpm\nTerminal=false\nType=Application\nCategories=Development;Programming\nStartupNotify=false\n'  >> /tmp/eclipse.desktop
         sudo mv /tmp/eclipse.desktop /usr/share/applications/eclipse.desktop
     fi
+    
+    if grep -Rwq ~/.bashrc -e '##pyenv';
+    then
+        echo .bashrc contains entry, assuming already installed PYENV
+    else
+        curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+        printf '##pyenv\nexport PATH="/home/andrew/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc
+    fi
+
 
     sudo apt-get update -y
     sudo apt-get install -f -y
@@ -101,8 +114,10 @@ echo Removing packages.....
 #       - thunderbird   |   Mail client                     Not used by preference
 #       - xed           |   Text editor                     Not used by preference
 #       - mintwelcome   |   Welcome Screen                  Redundant IMO
-#       - pix           |   Image Viewer                    Redundant xviewer installed by defaul
+#       - pix           |   Image Viewer                    Redundant xviewer installed by default
+#       - build tools   |   Compiling Source                only needed to compile source code
     sudo apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird xed mintwelcome pix
+    sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
 # Additional....
 echo Additional changes.....
