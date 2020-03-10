@@ -121,6 +121,19 @@ echo Removing packages.....
     sudo apt-get autoremove -y --purge make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
 # Additional....
+#Changing Desktop and Locakscreen Wallpaper
+echo Applying Wallpaper.....
+wget -N "https://images.hdqwalls.com/download/epic-explosion-70-$(xrandr | awk '$0 ~ "*" {print $1}').jpg" -P ~/Pictures/
+connectedOutputs=$(xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
+activeOutput=$(xrandr | grep -e " connected [^(]" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/") 
+connected=$(echo $connectedOutputs | wc -w)
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -n -t string -s  ~/Pictures/epic-explosion-70-*.jpg
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorLVDS1/workspace0/last-image -n -t string -s  ~/Pictures/epic-explosion-70-*.jpg
+for i in $(xfconf-query -c xfce4-desktop -p /backdrop -l|egrep -e "screen.*/monitor.*image-path$" -e "screen.*/monitor.*/last-image$"); do
+    xfconf-query -c xfce4-desktop -p $i -n -t string -s ~/Pictures/epic-explosion-70-*.jpg 
+    xfconf-query -c xfce4-desktop -p $i -s ~/Pictures/epic-explosion-70-*.jpg
+done
+
 echo Additional changes.....
 # Suspend on lid close while on AC
     xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
