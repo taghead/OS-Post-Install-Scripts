@@ -36,6 +36,7 @@ echo Installing packages.....
 #       - eclipse-ide   |   IDE                             Needed sometimes
 #       - pyenv         |   Python version manager          Used by preference
 
+    sudo apt install -y mpv vlc spotify-client git
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
@@ -91,7 +92,6 @@ echo Installing packages.....
 
     sudo apt-get update -y
     sudo apt-get install -f -y
-    sudo apt install -y mpv vlc spotify-client git
 
 # Themes 
 echo Preparing themes.....
