@@ -82,6 +82,7 @@ echo Installing packages.....
     if grep -Rwq ~/.bashrc -e '##pyenv';
     then
         echo .bashrc contains entry, assuming already installed PYENV
+        curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
     else
         curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
         printf '##pyenv\nexport PATH="/home/andrew/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc
