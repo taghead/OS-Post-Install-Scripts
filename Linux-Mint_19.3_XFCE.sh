@@ -75,7 +75,8 @@ echo Installing packages.....
     then
         echo Eclise-IDE is already installed...
     else 
-        apt install eclipse -y
+        sudo apt install eclipse -y
+        sudo rm /usr/bin/eclipse
         wget -N http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz -P /tmp/
         sudo tar -zxvf /tmp/eclipse-java-2019-*-R-linux-gtk-x86_64.tar.gz -C /usr/
         sudo ln -s /usr/eclipse/eclipse /usr/bin/eclipse
