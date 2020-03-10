@@ -92,6 +92,7 @@ echo Installing packages.....
     fi
 
     if [ -d ~/.jabba ] 
+    then
         echo Jabba already installed
     else
         curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
