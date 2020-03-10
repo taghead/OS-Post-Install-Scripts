@@ -4,7 +4,7 @@ A collection of personal post linux installation scripts for various Linux distr
 ## Linux Mint
 - Linux Mint 19.3
     - Mainly changing adding and removing preferred packages and themes on Linux Mint 19.3
-    - Installs `vscodium`, `megasync`, `mpv`, `vlc`, `git`, `eclipse-ide`, `pyenv` and `conky`.
+    - Installs `vscodium`, `megasync`, `mpv`, `vlc`, `git`, `eclipse-ide`, `pyenv`, `google-cloud-sdk` and `conky`.
     - Installs `arc-theme` and applies *arc-darker* to the __window manager__ and *arc-dark* to __appearance__.
     - Removes `hexchat`, `transmission`. `celluloid`. `thunderbird`, `xed`, `mintwelcome` and `pix`.
     - One liner install ```curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Linux-Mint_19.3_XFCE.sh | bash```
