@@ -36,6 +36,7 @@ echo Installing packages.....
 #       - eclipse-ide   |   IDE                             Needed sometimes
 #       - gcloud-sdk    |   Google Cloud SDK                Needed sometimes
 #       - pyenv         |   Python version manager          Used by preference
+#       - jabba         |   Java Version Manager            Used by preference
 
     sudo apt install -y mpv vlc spotify-client git
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
@@ -88,6 +89,12 @@ echo Installing packages.....
     else
         curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
         printf '##pyenv\nexport PATH="/home/andrew/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc
+    fi
+
+    if [ -d ~/.jabba ] 
+        echo Jabba already installed
+    else
+        curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
     fi
 
     if [ -d ~/google-cloud-sdk ]
