@@ -34,6 +34,7 @@ echo Installing packages.....
 #       - conky         |   Resource Monitor                Used by preference
 #       - discord       |   Social Platform                 Used by preference
 #       - eclipse-ide   |   IDE                             Needed sometimes
+#       - gcloud-sdk    |   Google Cloud SDK                Needed sometimes
 #       - pyenv         |   Python version manager          Used by preference
 
     sudo apt install -y mpv vlc spotify-client git
@@ -89,7 +90,15 @@ echo Installing packages.....
         printf '##pyenv\nexport PATH="/home/andrew/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc
     fi
 
-
+    if [ -d ~/google-cloud-sdk ]
+    then
+    echo Assuming already installed google-cloud-sdk
+    else
+        wget -N https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-283.0.0-linux-x86_64.tar.gz  -P /tmp
+        tar zxvf /tmp/google-cloud-sdk*.tar.gz -C ~
+        ~/google-cloud-sdk/install.sh --usage-reporting true --rc-path ~/.bashrc --path-update true --command-completion true
+    fi
+    
     sudo apt-get update -y
     sudo apt-get install -f -y
 
