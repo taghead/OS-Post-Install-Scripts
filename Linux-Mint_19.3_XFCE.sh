@@ -180,6 +180,7 @@ echo Additional changes.....
 #
 # pyenv install 2.7.16
 # jabba install 1.13
+# nvm install node
 
 #Then:
 #Restart terminal and run...
