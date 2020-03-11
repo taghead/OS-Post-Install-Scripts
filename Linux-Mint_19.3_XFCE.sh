@@ -170,3 +170,29 @@ echo Additional changes.....
 # Maintainence
     sudo apt-get update -y
     sudo apt-get upgrade -y
+
+
+
+
+#### NOTES TO SELF ####
+#Run:
+#curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Linux-Mint_19.3_XFCE.sh | bash
+#
+# pyenv install 2.7.16
+# jabba install 1.13
+
+#Then:
+#Restart terminal and run...
+#gcloud components install app-engine-python --quiet
+#gcloud components install app-engine-python-extras --quiet
+#gcloud components update
+
+#Open eclipse and install though the marketplace:
+# - Google cloud tools for Eclipse
+# - AWS Toolkit for Eclipse
+# - Dynamic web module for Eclipse (Wild web developer?) (click right click on project -> properties -> project facets -> click on link then change dynamic web module )
+# - Eclipse Java EE Developer Tools ( Eclipse Java Enterpise Developer Tools ?)
+# - Eclipse Java Web Developer Tools ( Enide (Studio)? )
+# - Eclipse Web Developer Tools ()
+
+
