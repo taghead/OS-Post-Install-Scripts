@@ -37,6 +37,7 @@ echo Installing packages.....
 #       - gcloud-sdk    |   Google Cloud SDK                Needed sometimes
 #       - pyenv         |   Python version manager          Used by preference
 #       - jabba         |   Java Version Manager            Used by preference
+#       - nvm           |   Node version Manager            User by preference
 
     sudo apt install -y mpv vlc spotify-client git
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
@@ -98,6 +99,13 @@ echo Installing packages.....
         echo Jabba already installed
     else
         curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
+    fi
+    
+    if [ -d ~/.nvm ] 
+    then
+        echo NVM already installed
+    else
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
     fi
 
     if [ -d ~/google-cloud-sdk ]
