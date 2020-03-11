@@ -195,5 +195,5 @@ echo Additional changes.....
 # - Eclipse Java EE Developer Tools ( Eclipse Java Enterpise Developer Tools ?)
 # - Eclipse Java Web Developer Tools ( Enide (Studio)? )
 # - Eclipse Web Developer Tools ()
-
+# - Eclipse JST Server Adapters
 
