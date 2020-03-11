@@ -38,7 +38,7 @@ echo Installing packages.....
 #       - pyenv         |   Python version manager          Used by preference
 #       - jabba         |   Java Version Manager            Used by preference
 #       - nvm           |   Node version Manager            User by preference
-#       - Arc-Dark          |   Dark theme                      to protect my eyes
+#       - Arc-Dark      |   Dark theme                      to protect my eyes
 
     sudo apt install -y mpv vlc spotify-client git arc-theme
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
@@ -155,11 +155,6 @@ echo Preparing themes.....
 # Window Manager
     xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Dark"
     xfconf-query -c xfwm4 -p /general/theme -s "Arc-Darker"
-
-# Conky:
-#       - Resource Monitor  |
-    sudo apt-get install conky-all
-    curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Files/Universal-Scripts/Conky.sh | bash
 
 #
 # Maintainence
