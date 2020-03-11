@@ -117,8 +117,6 @@ echo Installing packages.....
         ~/google-cloud-sdk/install.sh --usage-reporting true --rc-path ~/.bashrc --path-update true --command-completion true
     fi
     
-    sudo apt-get update -y
-    sudo apt-get install -f -y
 
 # Themes 
 echo Preparing themes.....
@@ -166,6 +164,10 @@ echo Additional changes.....
 
 #
 # Maintainence
+    sudo apt-get autoclean -y
+    sudo apt-get autoremove -y
+    sudo apt-get clean -y
+    sudo apt-get install -f -y
     sudo apt-get update -y
     sudo apt-get upgrade -y
 
