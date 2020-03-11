@@ -143,10 +143,8 @@ echo Removing packages.....
 #       - xed           |   Text editor                     Not used by preference
 #       - mintwelcome   |   Welcome Screen                  Redundant IMO
 #       - pix           |   Image Viewer                    Redundant xviewer installed by default
-#       - build tools   |   Compiling Source                only needed to compile source code
     sudo apt-get autoremove -y --purge hexchat transmission-common transmission-gtk celluloid thunderbird xed mintwelcome pix
-    sudo apt-get autoremove -y --purge make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
-
+    
 # Additional....
 #Changing Desktop and Locakscreen Wallpaper
 echo Applying Wallpaper.....
