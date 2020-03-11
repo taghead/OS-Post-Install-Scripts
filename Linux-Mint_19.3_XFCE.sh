@@ -182,12 +182,12 @@ echo Additional changes.....
 # jabba install 1.13
 # nvm install node
 
-#Then:
+# Follow https://cloud.google.com/sdk/docs/initializing?hl=id
+
 #Restart terminal and run...
 #gcloud components install app-engine-python --quiet
 #gcloud components install app-engine-python-extras --quiet
 #gcloud components update
-
 #Open eclipse and install though the marketplace:
 # - Google cloud tools for Eclipse
 # - AWS Toolkit for Eclipse (Help > INstall Enter https://aws.amazon.com/eclipse in the text box labeled “Work with” at the top of the dialog.)
