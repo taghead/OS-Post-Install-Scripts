@@ -38,8 +38,9 @@ echo Installing packages.....
 #       - pyenv         |   Python version manager          Used by preference
 #       - jabba         |   Java Version Manager            Used by preference
 #       - nvm           |   Node version Manager            User by preference
+#       - Arc-Dark          |   Dark theme                      to protect my eyes
 
-    sudo apt install -y mpv vlc spotify-client git
+    sudo apt install -y mpv vlc spotify-client git arc-theme
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
@@ -118,18 +119,6 @@ echo Installing packages.....
     fi
     
 
-# Themes 
-echo Preparing themes.....
-# Window Manager:
-#       - Arc-Dark          |   Dark theme                      to protect my eyes
-    sudo apt-get install -y arc-theme
-    xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Dark"
-    xfconf-query -c xfwm4 -p /general/theme -s "Arc-Darker"
-
-# Conky:
-#       - Resource Monitor  |
-    sudo apt-get install conky-all
-    curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Files/Universal-Scripts/Conky.sh | bash
 
 # Remove...
 echo Removing packages.....
@@ -161,6 +150,16 @@ echo Additional changes.....
 # Suspend on lid close while on AC
     xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
 
+# Themes 
+echo Preparing themes.....
+# Window Manager
+    xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Dark"
+    xfconf-query -c xfwm4 -p /general/theme -s "Arc-Darker"
+
+# Conky:
+#       - Resource Monitor  |
+    sudo apt-get install conky-all
+    curl https://gitlab.com/Taghead/linux-install-scripts/raw/master/Files/Universal-Scripts/Conky.sh | bash
 
 #
 # Maintainence
