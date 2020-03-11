@@ -189,7 +189,7 @@ echo Additional changes.....
 
 #Open eclipse and install though the marketplace:
 # - Google cloud tools for Eclipse
-# - AWS Toolkit for Eclipse
+# - AWS Toolkit for Eclipse (Help > INstall Enter https://aws.amazon.com/eclipse in the text box labeled “Work with” at the top of the dialog.)
 # - Dynamic web module for Eclipse (Wild web developer?) (click right click on project -> properties -> project facets -> click on link then change dynamic web module )
 # - Eclipse Java EE Developer Tools ( Eclipse Java Enterpise Developer Tools ?)
 # - Eclipse Java Web Developer Tools ( Enide (Studio)? )
