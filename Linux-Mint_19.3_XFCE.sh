@@ -37,8 +37,9 @@ echo Installing packages.....
 #       - gcloud-sdk    |   Google Cloud SDK                Needed sometimes
 #       - pyenv         |   Python version manager          Used by preference
 #       - jabba         |   Java Version Manager            Used by preference
-#       - nvm           |   Node version Manager            User by preference
+#       - nvm           |   Node version Manager            Used by preference
 #       - Arc-Dark      |   Dark theme                      to protect my eyes
+#       - Terraform     |   SaaS cloud managerment          Used by preference
 
     sudo apt install -y mpv vlc spotify-client git arc-theme
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
@@ -118,7 +119,13 @@ echo Installing packages.....
         ~/google-cloud-sdk/install.sh --usage-reporting true --rc-path ~/.bashrc --path-update true --command-completion true
     fi
     
-
+    if [ -f /usr/bin/terraform ]
+    then
+        echo Terraform installed
+    else
+        wget -N https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip -P /tmp
+        sudo unzip /tmp/terraform_0.12.23_linux_amd64.zip -d /usr/bin
+    fi
 
 # Remove...
 echo Removing packages.....
