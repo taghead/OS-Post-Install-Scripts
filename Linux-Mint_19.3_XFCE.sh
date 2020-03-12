@@ -42,7 +42,7 @@ echo Installing packages.....
 #       - Terraform     |   SaaS cloud managerment          Used by preferences
 #       - awscli        |   AWS CLI                         Used by preferences
 
-    sudo apt install -y mpv vlc spotify-client git arc-theme awscli
+    sudo apt install -y mpv vlc spotify-client git arc-theme awscli docker.io
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
@@ -198,4 +198,6 @@ echo Preparing themes.....
 # - Eclipse Java Web Developer Tools ( Enide (Studio)? )
 # - Eclipse Web Developer Tools ()
 # - Eclipse JST Server Adapters
+# sudo systemctl start docker
+# sudo systemctl enable docker
 
