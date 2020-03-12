@@ -39,7 +39,8 @@ echo Installing packages.....
 #       - jabba         |   Java Version Manager            Used by preference
 #       - nvm           |   Node version Manager            Used by preference
 #       - Arc-Dark      |   Dark theme                      to protect my eyes
-#       - Terraform     |   SaaS cloud managerment          Used by preference
+#       - Terraform     |   SaaS cloud managerment          Used by preferences
+#       - awscli        |   AWS CLI                         Used by preferences
 
     sudo apt install -y mpv vlc spotify-client git arc-theme
     sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl libedit-dev
