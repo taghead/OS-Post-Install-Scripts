@@ -175,6 +175,18 @@ echo Preparing themes.....
 
 
 
+if [ "$1" == "--university" ]
+then
+    pyenv install 2.7.16
+    jabba install 1.13
+    nvm install node
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    gcloud components install app-engine-python --quiet
+    gcloud components install app-engine-python-extras --quiet
+    gcloud components update
+    gcloud init
+fi
 
 #### NOTES TO SELF ####
 #Run:
@@ -187,6 +199,7 @@ echo Preparing themes.....
 # Follow https://cloud.google.com/sdk/docs/initializing?hl=id
 
 #Restart terminal and run...
+#gcloud init
 #gcloud components install app-engine-python --quiet
 #gcloud components install app-engine-python-extras --quiet
 #gcloud components update
