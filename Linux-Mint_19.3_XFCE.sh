@@ -47,6 +47,7 @@ echo Installing packages.....
 
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+    
 
     if [[ $(dpkg --list | grep -wo megasync) = "megasync" ]]
     then
@@ -213,4 +214,9 @@ fi
 # - Eclipse JST Server Adapters
 # sudo systemctl start docker
 # sudo systemctl enable docker
+
+## ADDITIONAL TO BE FORMATTED ##
+apt install zsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
 
