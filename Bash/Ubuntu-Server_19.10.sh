@@ -1,3 +1,4 @@
+#!/bin/bash
 #   Description: This is a bare metal install of openbox. There will be issues to be expected that will need to tackled at a per user basis.
 #   
 #   Issues expected:
