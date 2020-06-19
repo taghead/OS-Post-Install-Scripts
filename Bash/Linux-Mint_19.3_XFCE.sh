@@ -31,7 +31,6 @@ echo Installing packages.....
 #       - mpv           |   Minimal CLI Video Player        Used by preference
 #       - vlc           |   Multmedia Player                Used by preference
 #       - git           |   GIT CLI Client                  Used by preference and required for script
-#       - conky         |   Resource Monitor                Used by preference
 #       - discord       |   Social Platform                 Used by preference
 #       - eclipse-ide   |   IDE                             Needed sometimes
 #       - gcloud-sdk    |   Google Cloud SDK                Needed sometimes
