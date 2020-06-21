@@ -1,4 +1,11 @@
-- hosts: all
+- hosts: mongodb
+  vars_prompt:
+    - name: "name"
+      prompt: "Enter new username for MongoDB"
+      private: no
+    - name: "mongodb_password"
+      prompt: "Enter new password for MongoDB"
+      private: yes
   remote_user: root
   become: yes
   tasks:
@@ -22,16 +29,9 @@
       - mongodb-org-shell=4.2.2
       - mongodb-org-mongos=4.2.2
       - mongodb-org-tools=4.2.2
-      
-      
-#  - name: Import the public key used by the package management system
-#    apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=7F0CEB10 state=present
-#  - name: Add MongoDB repository
-#    apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' state=present
-#  - name: install mongodb
-#    apt: pkg=mongodb-org state=latest update_cache=yes
-#    notify:
-#    - start mongodb
-#  handlers:
-#    - name: start mongodb
-#      service: name=mongod state=started
+  - name: Enable and Start MongoDB Systemd
+    systemd:
+      state: started
+      name: mongod
+      enabled: yes
+      masked: no
