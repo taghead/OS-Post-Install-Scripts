@@ -1,0 +1,35 @@
+- hosts: emby
+  vars_prompt:
+    - name: "samba_remote_path"
+      prompt: "Enter samba remote path following syntax \"//192.168.1.2/sambashare\" (no quotes)"
+      private: no
+    - name: "mount_path"
+      prompt: "Enter the path the remote path should be mounted eg /Share"
+      private: no
+    - name: "user"
+      prompt: "Enter samba username"
+    - name: "pass"
+      prompt: "Enter samba password"
+  remote_user: root
+  become: yes
+  tasks:
+  - name: Installing cifs-utils
+    apt: 
+      name: cifs-utils
+      state: latest
+  - name: Marking directory
+    file:
+      path: "{{ mount_path }}"
+      state: directory
+  - name: Insert a line at the end of a file.
+    lineinfile:
+      path: /etc/fstab
+      line: "{{ samba_remote_path }} {{ mount_path }} cifs credentials=/root/.smb,_netdev,uid=1001,gid=1001,rw 0 0"
+  - name: Creating credentials file
+    file:
+      path: /root/.smb
+      state: touch
+  - name: Applying Credentials
+    lineinfile:
+      path: /root/.smb
+      line: "username={{ user }}\npassword={{pass}} "
